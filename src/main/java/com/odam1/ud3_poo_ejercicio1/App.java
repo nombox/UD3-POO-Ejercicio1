@@ -15,8 +15,8 @@ public class App {
         System.out.println("***TIENDA ONLINE***");
         
         Usuario usuario1 = new Usuario();
-        usuario1.nombre = "Pepe";
-        usuario1.email = "pepe@gmail.com";
+        usuario1.setNombre("Pepe");
+        usuario1.setEmail("pepe@gmail.com");
 
         usuario1.mostrarInfo();
         
@@ -24,22 +24,22 @@ public class App {
         Usuario usuario2 = new Usuario("Maria", "margia@gmail.com");
         
         //Creo un producto
-        /*Producto producto1 = new Producto();
-        producto1.nombre = "camiseta";
-        producto1.codigoProducto = "00001";
-        producto1.precio= 24.95f;*/
+        Producto producto1 = new Producto();
+        producto1.setNombre("camiseta");
+        producto1.setCodigoProducto("00001");
+        producto1.setPrecio(24.95f);
         
-        Producto producto2 = new Producto("Camiseta", 24.34f, "00001");
+      
         
-        producto2.mostrarInfor();
+        producto1.mostrarInfor();
         
         //El usuario1 hace un pedido de 2 unidades de producto1
         
         //
         Pedido pedido1 = new Pedido();
-        pedido1.usuario = usuario1;
-        pedido1.producto = producto2;
-        pedido1.cantidad = 2;
+        pedido1.setUsuario(usuario1);
+        pedido1.setProducto(producto1);
+        pedido1.setCantidad(2);
         
         pedido1.mostrarInfor();
     }

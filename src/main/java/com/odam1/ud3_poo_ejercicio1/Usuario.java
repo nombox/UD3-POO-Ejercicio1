@@ -9,8 +9,38 @@ package com.odam1.ud3_poo_ejercicio1;
  * @author sebastian.eduardo.va
  */
 public class Usuario {
-    String nombre;
-    String email;
+    private String nombre;
+    private String email;
+    
+    //GETTER Y SETTER
+    
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
     
     //Para poder usarlo vacío o sea agergarle en el main las caracteristicas como yo las quiera
     public Usuario(){
@@ -28,6 +58,8 @@ public class Usuario {
     
     
     public void mostrarInfo(){
-        System.out.println("Bienvenido "+"usuario: "+nombre+", Email: "+ email);
+        System.out.println("Bienvenido "+"usuario: "+getNombre()+", Email: "+ getEmail());
     }
+
+    
 }

@@ -9,19 +9,57 @@ package com.odam1.ud3_poo_ejercicio1;
  * @author sebastian.eduardo.va
  */
 public class Producto {
-    String codigoProducto;
-    float precio;
-    String nombre;
+    private String codigoProducto;
+    private float precio;
+    private String nombre;
     
     
-    public Producto(String codigoProducto, float precio, String nombre){
+    /**
+     * @return the codigoProducto
+     */
+    public String getCodigoProducto() {
+        return codigoProducto;
+    }
+
+    /**
+     * @param codigoProducto the codigoProducto to set
+     */
+    public void setCodigoProducto(String codigoProducto) {
         this.codigoProducto = codigoProducto;
+    }
+
+    /**
+     * @return the precio
+     */
+    public float getPrecio() {
+        return precio;
+    }
+
+    /**
+     * @param precio the precio to set
+     */
+    public void setPrecio(float precio) {
         this.precio = precio;
+    }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
     
+
+    
     public void mostrarInfor(){
-        System.out.println("Producto: "+nombre+". Codigo: "+ codigoProducto
-                            +", precio: "+precio);
+        System.out.println("Producto: "+getNombre()+". Codigo: "+ getCodigoProducto()
+                            +", precio: "+getPrecio());
     }
 }
