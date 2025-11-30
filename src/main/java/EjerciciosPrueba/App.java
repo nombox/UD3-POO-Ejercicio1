@@ -77,34 +77,32 @@ public class App {
         }
 
         if (decision == 3) {
-            
+
             //EJERCICIO 3
-                /*Implementa una clase Coche que va a tener dos atributos, velocidad y
+            /*Implementa una clase Coche que va a tener dos atributos, velocidad y
                 matrícula, y los métodos acelerar(int incremento), frenar(int
                 decremento) y mostrarVelocidad(), que muestra por pantalla la
                 velocidad del vehículo. Define una clase App con un método main en el que
                 crees dos objetos de tipo coche. Establece velocidades diferentes en cada
                 uno, y llama varias veces a acelerar y frenar con valores distintos en cada
                 uno de los objetos mostrando posteriormente la velocidad.*/
-                
-                
             //Coche 1
-            Coche coche1 = new Coche(120,"1234 BCD");
+            Coche coche1 = new Coche(120, "1234 BCD");
             coche1.acelerar(50);
             coche1.frenar(20);
-            
+
             coche1.mostrarVelocidad();
             System.out.println("");
             //Coche 2
-            Coche coche2 = new Coche(50,"5678 EFG");
+            Coche coche2 = new Coche(50, "5678 EFG");
             coche2.acelerar(20);
             coche2.frenar(100);
-            
+
             coche2.mostrarVelocidad();
         }
-        
-        if(decision == 4){
-        /*      Implementa una clase Libro, que va a tener un título, un autor, un
+
+        if (decision == 4) {
+            /*      Implementa una clase Libro, que va a tener un título, un autor, un
             numeroPaginas, puede estar abierto o cerrado, y una página actual. La
             clase va a contar con los siguientes métodos:
              abrir(): Marca el libro como abierto, mostrando un aviso por
@@ -122,10 +120,70 @@ public class App {
             segundo, define una página aleatoria entre 0 y la última página del libro, y
             pasa páginas hasta llegar a ella utilizando un bucle. Por último, muestra los
             datos de este libro.
-            */
-        
-        
-        
+             */
+
+            //Libro 1
+            Libro libro1 = new Libro();
+            libro1.setTitulo("El senor de los anillos");
+            libro1.setAutor("J.R.R Tolkien");
+            libro1.setNumeroPaginas(30);
+            libro1.setEstadoPaginas(false);
+            libro1.setPaginaActual(1);
+            
+            
+            //Metodos del libro 1
+            System.out.println("Este es el libro: " + libro1.getTitulo() + " del autor " + libro1.getAutor());
+            System.out.println("El libro esta actualmente cerrado, deseas abrirlo? (S/N)");
+            String avanzar = entradaTeclado.next();
+
+            if (avanzar.equalsIgnoreCase("S")) {
+                libro1.abrir();
+                System.out.println("Estas actualmente en la pagina " + libro1.getPaginaActual());
+            }
+
+            while (avanzar.equalsIgnoreCase("S")) {
+
+                System.out.println("Quieres avanzar a la siguiente pagina? (S/N)");
+                avanzar = entradaTeclado.next();
+                libro1.pasarPagina(avanzar);
+            }
+
+            if (libro1.getEstadoPaginas() == true) {
+                System.out.println("Quieres cerrar el libro? (S/N)");
+                avanzar = entradaTeclado.next();
+                    if(avanzar.equalsIgnoreCase("S")){
+                        libro1.cerrar();
+                    }
+            }
+            
+            libro1.mostrarDatos();
+
+            //Libro 2
+            Libro libro2 = new Libro();
+            libro2.setTitulo("Lanza coloradas");
+            libro2.setAutor("Arturo Uslar Pietri");
+            libro2.setNumeroPaginas(20);
+            libro2.setEstadoPaginas(false);
+            libro2.setPaginaActual(1);
+            
+            int paginaAleatoria = (int) (Math.random() * (20-1+1))+1;
+            
+            //Metodos del libro 2
+            System.out.println("Este es el libro: " + libro1.getTitulo() + " del autor " + libro1.getAutor());
+            System.out.println("El libro esta actualmente cerrado, deseas abrirlo? (S/N)");
+            avanzar = entradaTeclado.next();
+            
+            if (avanzar.equalsIgnoreCase("S")) {
+                libro1.abrir();
+            }
+            
+            System.out.println("");
+            
+            while(libro2.getPaginaActual()<libro2.getNumeroPaginas()){
+                //AQUI VA EL BUCLE
+            
+            }
+
         }
     }
 }
