@@ -23,8 +23,7 @@ public class App {
                            Ejercicio 2: Rectangulo
                            Ejercicio 3: Coche
                            Ejercicio 4: Libro
-                           Ejercicio 5:
-                           Ejercicio 6:""");
+                           Ejercicio 5: Persona""");
         decision = entradaTeclado.nextInt();
 
         //EJERCICIO 1
@@ -38,6 +37,10 @@ public class App {
             Circulo miCirculo = new Circulo();
 
             miCirculo.setRadio(24.5f);
+
+            System.out.println("El area segun profe: " + miCirculo.areaProfe());
+            System.out.println("El Diametro segun profe: " + miCirculo.diametroProfe());
+            System.out.println("El Circunferencia segun profe: " + miCirculo.circunferenciaProfe());
 
             miCirculo.calcularArea();
 
@@ -129,8 +132,7 @@ public class App {
             libro1.setNumeroPaginas(30);
             libro1.setEstadoPaginas(false);
             libro1.setPaginaActual(1);
-            
-            
+
             //Metodos del libro 1
             System.out.println("Este es el libro: " + libro1.getTitulo() + " del autor " + libro1.getAutor());
             System.out.println("El libro esta actualmente cerrado, deseas abrirlo? (S/N)");
@@ -141,21 +143,30 @@ public class App {
                 System.out.println("Estas actualmente en la pagina " + libro1.getPaginaActual());
             }
 
-            while (avanzar.equalsIgnoreCase("S")) {
-
+            while (libro1.getEstadoPaginas()== true) {
+                
+                while(avanzar.equalsIgnoreCase("S")){
                 System.out.println("Quieres avanzar a la siguiente pagina? (S/N)");
                 avanzar = entradaTeclado.next();
-                libro1.pasarPagina(avanzar);
-            }
+                if (avanzar.equalsIgnoreCase("S")) {
+                    libro1.pasarPagina();
+                    System.out.println("");
+                }
+               }
+       
 
             if (libro1.getEstadoPaginas() == true) {
                 System.out.println("Quieres cerrar el libro? (S/N)");
                 avanzar = entradaTeclado.next();
-                    if(avanzar.equalsIgnoreCase("S")){
+                    if (avanzar.equalsIgnoreCase("S")) {
                         libro1.cerrar();
-                    }
+                        
+                    } else{avanzar = "S";}
+                
             }
-            
+            }
+                   
+
             libro1.mostrarDatos();
 
             //Libro 2
@@ -164,25 +175,41 @@ public class App {
             libro2.setAutor("Arturo Uslar Pietri");
             libro2.setNumeroPaginas(20);
             libro2.setEstadoPaginas(false);
-            libro2.setPaginaActual(1);
-            
-            int paginaAleatoria = (int) (Math.random() * (20-1+1))+1;
-            
+            libro2.setPaginaActual((int) (Math.random() * (20 - 1 + 1)) + 1);
+
+            System.out.println("");
+
             //Metodos del libro 2
-            System.out.println("Este es el libro: " + libro1.getTitulo() + " del autor " + libro1.getAutor());
+            System.out.println("Este es el libro: " + libro2.getTitulo() + " del autor " + libro2.getAutor());
             System.out.println("El libro esta actualmente cerrado, deseas abrirlo? (S/N)");
             avanzar = entradaTeclado.next();
-            
+
             if (avanzar.equalsIgnoreCase("S")) {
-                libro1.abrir();
+                libro2.abrir();
             }
-            
+
             System.out.println("");
-            
-            while(libro2.getPaginaActual()<libro2.getNumeroPaginas()){
+
+            while (libro2.getPaginaActual() < libro2.getNumeroPaginas()) {
                 //AQUI VA EL BUCLE
-            
+
+                libro2.pasarPagina();
             }
+
+            libro2.mostrarDatos();
+
+        }
+
+        if (decision == 5) {
+            //Persona 1
+            Persona persona1 = new Persona("Sebastian", "Vargas", 27);
+
+            persona1.presentarse();
+
+            //Persona 2
+            Persona persona2 = new Persona("Carla", "Perez", 25);
+
+            persona2.hablar(persona1);
 
         }
     }

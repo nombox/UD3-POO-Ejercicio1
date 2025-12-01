@@ -117,16 +117,17 @@ public class Libro {
 
     }
 
-    public void pasarPagina(String decision) {
+    public void pasarPagina() {
 
         /*  pasarPagina(): Incrementa la página actual en uno. Muestra por
             pantalla la página que se acaba de leer. Si el libro está cerrado, no se
             puede pasar página.*/
         if (this.paginaActual < this.numeroPaginas) {
-            if (this.estadoPaginas == true && decision.equalsIgnoreCase("S")) {
+            if (this.estadoPaginas == true) {
+                System.out.println("La pagina que se paso fue la " + this.paginaActual);
                 System.out.println("Pagina pasada");
                 this.paginaActual += 1;
-                System.out.println("Pagina actual " + this.paginaActual);
+                System.out.println("Pagina actual "+this.paginaActual);
             } 
             
             if(this.estadoPaginas == false) {

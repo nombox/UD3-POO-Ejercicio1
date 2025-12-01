@@ -20,6 +20,17 @@ public class Circulo {
     
     //CONSTRUCTORES
     
+    /*
+    TRIBUTOS QUE DEBEN IR EN EL CONSTRUCTOR:
+    - AQUELLOS QUE FORMAN PARTE DE LA IDENTIDAD DEL OBJETO.
+    - AQUELLOS QUE NO SUELEN CAMBIAR
+    
+    ATRIBUTOS QUE NO DEBEN IR EN EL CONSTRUCTO:
+    - AQUELLOS OPCIONALES 
+    - ATRIBUTOS QUE SON RESULTADO DE UNA ACCION POSTERIOR
+    
+    */
+    
     public Circulo(float radio){
     this.radio = radio;
     }
@@ -38,10 +49,26 @@ public class Circulo {
         this.radio = radio;
     }
 
+    
+    
+    //RESPUESTAS PROFE
+    public double circunferenciaProfe(){
+    return (Math.round((2 * Math.PI * this.radio))) / 100;
+    }
+    
+    public double areaProfe(){
+    return (Math.round(Math.PI * Math.pow(this.radio, 2) * 100)) / 100f;
+    }
+    
+    public double diametroProfe(){
+    return (Math.round((2 * this.radio) * 100)) / 100;
+    }
+    //--------------------------
+    
     public void calcularArea() {
         System.out.println("tu area es: " + (Math.round(Math.PI * Math.pow(this.radio, 2) * 100) / 100f));
     }
-
+    
     public void calcularDiametro() {
         System.out.println("Tu Diamentro es: " + (Math.round((2 * this.radio) * 100)) / 100);
     }
