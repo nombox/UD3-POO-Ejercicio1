@@ -43,6 +43,7 @@ public class Libro {
         this.titulo = titulo;
         this.autor = autor;
         this.numeroPaginas = numeroPaginas;
+        //Esto al ser un booleano no es necesario que sea como parametro, puede ser con this.estadoPaginas = false;
         this.estadoPaginas = estadoPaginas;
         this.paginaActual = paginaActual;
     }
@@ -74,7 +75,7 @@ public class Libro {
     public void setNumeroPaginas(int numeroPaginas) {
         this.numeroPaginas = numeroPaginas;
     }
-
+    
     public boolean getEstadoPaginas() {
         return estadoPaginas;
     }
@@ -92,6 +93,11 @@ public class Libro {
     }
 
     //METODOS
+    
+    /* ES IMPORTANTE QUE CAMBIE LOS METODOS PARA QUE HAGAN LA LOGICA DEL OBJETO 
+    SOLAMENTE Y QUE EL MAIN INTERPRETE Y MANDE MENSAJE SEGUN SEA EL CASO
+    
+    */
     public void abrir() {
         /* abrir(): Marca el libro como abierto, mostrando un aviso por
             pantalla. Si el libro ya está abierto, no se puede volver a abrir.*/
@@ -101,6 +107,8 @@ public class Libro {
         } else {
             System.out.println("No se puede volver a abrir porque el libro ya estaba abierto");
         }
+        
+        
 
     }
 
