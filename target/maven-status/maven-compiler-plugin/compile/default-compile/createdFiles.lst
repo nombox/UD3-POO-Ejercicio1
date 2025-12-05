@@ -1,4 +1,5 @@
 EjerciciosPrueba\Persona.class
+com\odam1\ud3_poo_ejercicio1\EjerciciosNumerados\NivelEstudios.class
 com\odam1\ud3_poo_ejercicio1\Usuario.class
 com\odam1\ud3_poo_ejercicio1\EjerciciosNumerados\Puntuacion.class
 com\odam1\ud3_poo_ejercicio1\Producto.class
@@ -13,4 +14,5 @@ EjerciciosPrueba\Rectangulo.class
 com\odam1\ud3_poo_ejercicio1\EjerciciosNumerados\App_Enumerados.class
 EjerciciosPrueba\Profe\App_Libro.class
 com\odam1\ud3_poo_ejercicio1\EjerciciosNumerados\DiaSemana.class
+com\odam1\ud3_poo_ejercicio1\EjerciciosNumerados\Estudiante.class
 com\odam1\ud3_poo_ejercicio1\Pedido.class

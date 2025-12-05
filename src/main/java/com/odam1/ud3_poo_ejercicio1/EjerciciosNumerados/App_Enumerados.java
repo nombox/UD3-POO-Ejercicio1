@@ -17,7 +17,8 @@ public class App_Enumerados {
         //diasSemanas();
         //ejercicio1();
         //ejercicio3();
-        
+        //ejercicio4();
+ 
         
         
     }
@@ -90,5 +91,59 @@ public class App_Enumerados {
         }
         
 
+    }
+    
+    static void ejercicio4(){
+     //Creo el objeto
+        Estudiante nuevoEstudiante = new Estudiante();
+        //booleano para saber si todo esta correcto
+        boolean todoCorrecto = true;
+
+        // 1. SOLICITAR DATOS
+        System.out.println("--- Registro de Estudiante ---");
+        
+        System.out.print("Introduce el nombre: ");
+        String nombre = entradaTeclado.nextLine();
+
+        if(!nuevoEstudiante.setNombre(nombre)){
+        System.out.println("Error el nombre debe tener más de 3 caracteres");
+        todoCorrecto = false;
+        }
+        
+
+        System.out.print("Introduce la edad: ");
+        int edad = entradaTeclado.nextInt(); 
+        
+        if(!nuevoEstudiante.setEdad(edad)){
+         System.out.println("La edad del usuario debe ser entre 0 y 120");
+        todoCorrecto = false;
+        }
+        
+  
+        // para limpiar el buffer
+        entradaTeclado.nextLine(); 
+
+        System.out.print("Introduce el nivel de estudios (PRIMARIA, SECUNDARIA, CICLOS, UNIVERSIDAD): ");
+        String nivelTexto = entradaTeclado.next().toUpperCase(); 
+        
+        if(!nuevoEstudiante.setNivelEstudio(nivelTexto)){
+            System.out.println("Error: Nivel de estudios no reconocido.");
+            todoCorrecto = false;
+        }
+
+        // 2. VALIDAR DATOS
+        // Vamos a usar una variable booleana para controlar si todo es correcto
+
+        
+        //Creacion del objeto usuario
+        
+        if(todoCorrecto){
+            
+            System.out.println("Nuevo estudiante creado con exito");
+            System.out.println(nuevoEstudiante.toString());
+        } else{System.out.println("No se pudo crear el estudiante debido a un error");}
+        
+        
+    
     }
 }
