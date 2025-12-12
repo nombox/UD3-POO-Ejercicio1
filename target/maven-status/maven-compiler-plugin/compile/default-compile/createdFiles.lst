@@ -14,6 +14,7 @@ com\odam1\ud3_poo_ejercicio1\EjerciciosNumerados\Estudiante.class
 EjerciciosPrueba\Persona.class
 com\odam1\ud3_poo_ejercicio1\EjerciciosNumerados\Puntuacion.class
 AtributosEstaticos\Ejercicios\Servidor.class
+AtributosEstaticos\Ejercicios\Calculadora.class
 com\odam1\ud3_poo_ejercicio1\EjerciciosNumerados\SolucionesProfesora\Estudiante.class
 EjerciciosPrueba\App.class
 EjerciciosPrueba\Coche.class
@@ -21,6 +22,7 @@ com\odam1\ud3_poo_ejercicio1\EjerciciosNumerados\SolucionesProfesora\Meses.class
 com\odam1\ud3_poo_ejercicio1\App.class
 com\odam1\ud3_poo_ejercicio1\EjerciciosNumerados\SolucionesProfesora\Puntuacion.class
 EjerciciosPrueba\Libro.class
+AtributosEstaticos\Ejercicios\LogSistema.class
 com\odam1\ud3_poo_ejercicio1\EjerciciosNumerados\App_Enumerados.class
 EjerciciosPrueba\Profe\App_Libro.class
 AtributosEstaticos\Ejercicios\Usuario.class
