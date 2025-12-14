@@ -4,6 +4,9 @@
  */
 package com.odam1.ud3_poo_ejercicio1.EjerciciosNumerados;
 
+import com.odam1.ud3_poo_ejercicio1.EjerciciosNumerados.exception.TextTooLongException;
+import com.odam1.ud3_poo_ejercicio1.EjerciciosNumerados.exception.TextTooShortException;
+
 import java.util.Scanner;
 
 /**
@@ -18,7 +21,9 @@ public class App_Enumerados {
         //ejercicio1();
         //ejercicio3();
         //ejercicio4();
- 
+//        ejercicio4Nuevo();
+
+        ejercicioExcepctions();
         
         
     }
@@ -160,5 +165,105 @@ public class App_Enumerados {
         
         
     
+    }
+
+    static void ejercicio4Nuevo(){
+        /*Define una enumeración llamada NivelEstudios con valores: PRIMARIA,
+        SECUNDARIA, CICLOS, UNIVERSIDAD.
+
+          Define también una clase llamada Estudiante que tenga como atributos: nombre, edad y nivel
+        de estudios. Haz los atributos privados e incluye getters y setters.
+
+          Haz un programa que solicite al usuario los datos de un alumno, y si todos son correctos, cree
+        una instancia de Alumno y muestre el método toString del mismo, que permitirá visualizar
+        todos sus atributos en una línea.
+
+          Los datos son correctos:
+            *si el nombre ocupa más de 3 caracteres.
+            *la edad está entre 0 y 120 y el nivel de estudios introducido se corresponde con un
+                valor de la enumeración definida*/
+
+        // 1. Ingreso de datos
+
+        EstudianteNew nuevoEstudiante = null;
+       while (nuevoEstudiante == null) {
+           entradaTeclado.reset();
+           try {
+               // 1. SOLICITAR DATOS
+               System.out.println("--- Registro de Estudiante ---");
+
+               System.out.print("Introduce el nombre: ");
+               String nombre = entradaTeclado.nextLine();
+
+               System.out.print("Introduce la edad: ");
+               int edad = entradaTeclado.nextInt();
+
+               // para limpiar el buffer
+               entradaTeclado.nextLine();
+               NivelEstudios nivelEstudios = getNivelEstudios(entradaTeclado);
+
+               //2. Creacion de estudiante
+               nuevoEstudiante = new EstudianteNew(nombre,edad,nivelEstudios);
+           } catch (Exception e) {
+               //2.5 (Manejo de exceptions sobre datos del estudiante)
+               System.out.println("Error de ingreso de datos: " + e.getMessage());
+           }
+       }
+        //3. Dibujo en pantalla de los datos del estudiante creado
+        System.out.println("Datos del estudiante: " + nuevoEstudiante);
+    }
+
+    private static NivelEstudios getNivelEstudios(Scanner entrada) {
+        NivelEstudios nivelEstudios = null;
+        while (nivelEstudios == null) {
+            try {
+                System.out.print("Introduce el nivel de estudios (PRIMARIA, SECUNDARIA, CICLOS, UNIVERSIDAD): ");
+                String nivelTexto = entrada.next().toUpperCase();
+                nivelEstudios = NivelEstudios.valueOf(nivelTexto); //IllegalArgumentException
+                // para limpiar el buffer
+                entrada.nextLine();
+            } catch (IllegalArgumentException e){
+                System.out.println("Error de valor de nivel de estudios: Nivel de estudios no reconocido.");
+            }
+        }
+        return nivelEstudios;
+    }
+
+    private static void ejercicioExcepctions() {
+        /* Diseñar un juego donde tienes que ingresar un texto y si es del tamaño correcto, entonces ganas.
+         * De lo contrario, Mostrar un mensaje sigtificativo que muestre que tan cerca estuviste de adivinar
+         */
+
+        final int sizeCorrecto = 10;
+
+        entradaTeclado.reset();
+        System.out.print("Ingresa un texto a ver si adivinas el tamaño que se espera para un texto: ");
+        String texto = entradaTeclado.nextLine();
+
+        try {
+            if (texto == null) {
+                throw new RuntimeException("EL TEXTO NO PUEDE SER NULO.");
+            }
+
+            if (texto.length() < sizeCorrecto) {
+                throw new TextTooShortException("EL TEXTO ES DEMASIADO CORTO.", sizeCorrecto - texto.length());
+            }
+
+
+            if (texto.length() > sizeCorrecto) {
+                throw new TextTooLongException("EL TEXTO ES DEMASIADO LARGO.");
+            }
+
+            if (texto.length() == sizeCorrecto) {
+                System.out.print("GANASTE! El tamaño correcto era " + sizeCorrecto + " tu texto es: " + texto);
+            }
+        } catch (TextTooLongException e) {
+            System.out.print("Buena suerte la proxima! Ingresaste un texto muy largo.");
+        } catch (TextTooShortException e) {
+            System.out.print("Buena suerte la proxima! Ingresaste un texto muy corto.");
+        } catch (Exception e) {
+            System.out.print("Ha ocurrido un error inesperado! Por favor contacte con soporte a alicando@gmail.com, informacion de error: " + e);
+        }
+
     }
 }
