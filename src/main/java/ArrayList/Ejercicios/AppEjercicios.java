@@ -15,11 +15,11 @@ public class AppEjercicios {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         
+        
     //ejercicio1();
     //ejercicio2();
-    
-    
+    //ejercicio3();
+   
     }
     
     static void ejercicio1(){
@@ -73,7 +73,48 @@ debe decir "¡Ese producto ya está en el carrito!" y no añadirlo.
             carritoCompra.add(decision);}
         } 
     } System.out.println("Tu carrito de la compra es: "+carritoCompra);
-        
-    
     }
+    
+    static void ejercicio3(){
+    
+     /*
+    Ejercicio 3: La Clase de Matemáticas (Nivel Numérico/Wrappers)
+    Genera un ArrayList con 10 o 20 números enteros aleatorios entre 0 y 10 (simulando
+    notas).
+        1. Imprime la lista de notas original.
+        2. Calcula y muestra la nota media de la clase.
+        3. El Reto: Recorre la lista y borra todas las notas que sean suspensos (menores a
+        5).
+    o Pista: Ten cuidado al borrar dentro de un bucle, los índices se mueven.
+    Es mejor recorrerlo al revés o usar un iterador.
+    4. Imprime la lista de aprobados final.
+    */
+    
+    ArrayList <Integer> notasAleatorias = new ArrayList <>();
+    
+    
+    for(int i = 0; i<10; i++){
+        int aleatorio = (int) (Math.random() * 11);
+        notasAleatorias.add(aleatorio);
+    }
+          
+        System.out.println("La lista total de alumnos es: "+notasAleatorias);
+    int suma=0;
+    
+    for(int i=0; i<notasAleatorias.size();i++){
+            suma += notasAleatorias.get(i);
+        }
+    suma= suma/notasAleatorias.size();
+    
+        System.out.println("El promedio de notas es: "+ suma);
+    
+    for(int i = notasAleatorias.size()-1; i>=0; i--){
+        if(notasAleatorias.get(i)<5){
+        notasAleatorias.remove(i);
+        }
+    }
+    
+        System.out.println("La lista de aprobados es: "+ notasAleatorias);
+    }
+    
 }
